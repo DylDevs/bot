@@ -148,6 +148,7 @@ class translation(commands.Cog):
 
     @commands.command(name="translation")
     async def translation(self, ctx: commands.Context, command: str = None, *args):
+        """Broken don't use."""
         if not command or command == "":
             await ctx.send(embed=error_embed("Please provide a command to lookup (use `help` for a list)"))
             logger.info(f"[bold]{ctx.author.name}[/bold] did not provide a command for the translation command")

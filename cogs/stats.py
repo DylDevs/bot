@@ -41,9 +41,9 @@ class stats(commands.Cog):
         if self.token is not None:
             return
         
-        response = requests.post(f"{variables.UNAMI_API}auth/login", data={
-            "username": variables.ENV.UNAMI_LOGIN, 
-            "password": variables.ENV.UNAMI_PASS
+        response = requests.post(f"{variables.UMAMI_API}/auth/login", data={
+            "username": variables.ENV.UMAMI_LOGIN, 
+            "password": variables.ENV.UMAMI_PASS
         })
         
         self.token = response.json()["token"]

@@ -15,6 +15,9 @@ class version(commands.Cog):
 
     @commands.command()
     async def version(self, ctx: commands.Context, version: str = None):
+        """
+        Lookup a specific version of ETS2LA by it's shortened hash.
+        """
         if version is None:
             await ctx.send(embed=error_embed("Please provide a version hash to lookup."))
             logger.info(f"[bold]{ctx.author.name}[/bold] did not provide a version hash for the version command")

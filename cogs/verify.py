@@ -12,6 +12,7 @@ if os.path.exists(variables.VERIFIED_USERS_FILE):
     with open(variables.VERIFIED_USERS_FILE, "r") as f:
         verified_users = [int(line.strip()) for line in f.readlines()]
 else:
+    os.makedirs(os.path.dirname(variables.VERIFIED_USERS_FILE), exist_ok=True)
     with open(variables.VERIFIED_USERS_FILE, "w") as f:
         f.write("")
         verified_users = []

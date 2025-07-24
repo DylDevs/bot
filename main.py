@@ -21,6 +21,7 @@ cogs = [
     "xdd",
     "update_watcher",
     "verify",
+    "time",
     "support"
 ]
 
@@ -66,7 +67,7 @@ async def reload(ctx: commands.Context, *target_cogs):
     # Ensure user has permission
     author = ctx.author
     if author.id not in variables.ENV.ADMINS:
-        logger.info(f"[bold]{author.name}[/bold] attempted to run the reload command without permission")
+        logger.info(f"[bold]{author.name}[/bold] ({author.id}) attempted to run the reload command without permission")
         await ctx.send(embed=error_embed("You do not have permission to run this command."))
         return
     else:

@@ -11,6 +11,9 @@ class xdd(commands.Cog):
     @commands.command()
     @commands.cooldown(1, 10, commands.BucketType.user)
     async def xdd(self, ctx: commands.Context, member: discord.Member = None):
+        """
+        :xdx:
+        """
         if member is None:
             member = ctx.author
         

@@ -11,16 +11,17 @@ _env_dictionary = {}
 for i in _env_data:
     key = i.split("=")[0]
     value = i.replace(i.split("=")[0] + "=", "")
-    if "," in value: # Suppot lists
+    if "," in value: # Support lists
         value = [x.strip() for x in value.split(",")]
-        for value in value:
+        for i, val in enumerate(value):
             try: # Try to convert to int
-                value = int(value)
+                value[i] = int(val)
             except ValueError:
                 pass
-    
+
     try: # Try to convert to int
-        value = int(value)
+        if type(value) == str:
+            value = int(value)
     except ValueError:
         pass
     
@@ -34,7 +35,7 @@ ENV.ADMINS = [ENV.ADMINS] if isinstance(ENV.ADMINS, int) else ENV.ADMINS
 # General constants and URLs
 PREFIX: str = "!"
 """The prefix for commands"""
-UNAMI_API = "https://umami.ets2la.com/api/"
+UMAMI_API = "https://umami.ets2la.com/api"
 """Unami stats API endpoint"""
 SUPPORT_API_BASE = "localhost:8001"
 """Base URL for the ETS2LA chat support API"""
